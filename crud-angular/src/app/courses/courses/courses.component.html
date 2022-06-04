@@ -1,21 +1,28 @@
-<table mat-table [dataSource]="courses" class="mat-elevation-z8">
+<mat-card>
 
-  <!-- Name Column -->
-  <ng-container matColumnDef="name">
-    <th mat-header-cell *matHeaderCellDef> Curso </th>
-    <td mat-cell *matCellDef="let course"> {{ course.name }} </td>
-  </ng-container>
+  <mat-toolbar color="primary">
+    <span>Cursos Disponíveis</span>
+  </mat-toolbar>
 
-  <!-- Category Column -->
-  <ng-container matColumnDef="category">
-    <th mat-header-cell *matHeaderCellDef> Categoria </th>
-    <td mat-cell *matCellDef="let course"> {{ course.category }} </td>
-  </ng-container>
+  <table mat-table [dataSource]="courses" class="mat-elevation-z8">
 
-  <!-- quais colunas vai mostrar na tabela -->
-  <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
-  <!-- para cada linha, vai mostrar essas colunas separadas na variável displayedColumns -->
-  <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+    <!-- Name Column -->
+    <ng-container matColumnDef="name">
+      <th mat-header-cell *matHeaderCellDef> Curso </th>
+      <td mat-cell *matCellDef="let course"> {{ course.name }} </td>
+    </ng-container>
 
-</table>
+    <!-- Category Column -->
+    <ng-container matColumnDef="category">
+      <th mat-header-cell *matHeaderCellDef> Categoria </th>
+      <td mat-cell *matCellDef="let course"> {{ course.category }} </td>
+    </ng-container>
 
+    <!-- quais colunas vai mostrar na tabela -->
+    <tr mat-header-row *matHeaderRowDef="displayedColumns"></tr>
+    <!-- para cada linha, vai mostrar essas colunas separadas na variável displayedColumns -->
+    <tr mat-row *matRowDef="let row; columns: displayedColumns;"></tr>
+
+  </table>
+
+</mat-card>
