@@ -2,6 +2,7 @@ import { CoursesService } from './../services/courses.service';
 import { Component, OnInit } from '@angular/core';
 
 import { Course } from '../model/course';
+import { Observable } from 'rxjs';
 
 @Component({
   selector: 'app-courses',
@@ -10,7 +11,7 @@ import { Course } from '../model/course';
 })
 export class CoursesComponent implements OnInit {
   //sem parâmetro: public
-  courses: Course[] = [];
+  courses: Observable<Course[]>;
 
   //array de string com o nome das propriedades no /course
   displayedColumns = ['name', 'category'];
@@ -21,11 +22,12 @@ export class CoursesComponent implements OnInit {
   constructor(private coursesService: CoursesService) {
     /* this.courses = []; //inicializando variável
     /* this.coursesService = new CoursesService(); //instanciação de classe */
+
+    this.courses = this.coursesService.list();
    }
 
   ngOnInit(): void {
-    //recebe coursesService e lista só quando inicializado
-    this.courses = this.coursesService.list();
+
   }
 
 }
