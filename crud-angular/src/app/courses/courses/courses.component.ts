@@ -10,8 +10,8 @@ import { Observable } from 'rxjs';
   styleUrls: ['./courses.component.scss']
 })
 export class CoursesComponent implements OnInit {
-  //sem parâmetro: public
-  courses: Observable<Course[]>;
+  //sem parâmetro: public; $ - padrão Observable
+  courses$: Observable<Course[]>;
 
   //array de string com o nome das propriedades no /course
   displayedColumns = ['name', 'category'];
@@ -23,7 +23,7 @@ export class CoursesComponent implements OnInit {
     /* this.courses = []; //inicializando variável
     /* this.coursesService = new CoursesService(); //instanciação de classe */
 
-    this.courses = this.coursesService.list();
+    this.courses$ = this.coursesService.list();
    }
 
   ngOnInit(): void {
