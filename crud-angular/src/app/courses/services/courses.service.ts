@@ -10,7 +10,7 @@ import { Course } from '../model/course';
 export class CoursesService {
 
   //caminho p/ chamar no servidor
-  private readonly API = '/assets/courses.json'
+  private readonly API = 'api/courses';
 
   //chamada assíncrona pro servidor - conexão com API
   constructor(private httpClient: HttpClient) { }
