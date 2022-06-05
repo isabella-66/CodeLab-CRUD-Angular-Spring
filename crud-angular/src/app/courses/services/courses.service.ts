@@ -19,7 +19,7 @@ export class CoursesService {
     return this.httpClient.get<Course[]>(this.API)
     .pipe(
       first(), //interessada em obter apenas 1ª resposta que o servidor enviar, a lista json
-      delay(5000), //3s
+      /* delay(5000), //3s */
       tap(courses => console.log(courses)) //recebe lista de cursos e faz algo com essa info (debuga)
     );
   }
