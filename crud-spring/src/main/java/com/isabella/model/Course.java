@@ -7,6 +7,8 @@ import javax.persistence.GeneratedValue;
 import javax.persistence.GenerationType;
 import javax.persistence.Id;
 
+import com.fasterxml.jackson.annotation.JsonProperty;
+
 import lombok.Data;
 
 @Data    //gera automaticamente getters e setters, entre outros
@@ -16,6 +18,7 @@ public class Course {
     
     @Id //chave primária
     @GeneratedValue(strategy = GenerationType.AUTO) //valor adicionado automaticamente pelo banco de dados
+    @JsonProperty("_id") //qual nome quer usar
     private Long id;
 
     @Column(length = 200, nullable = false) //nº de caracteres máximo, não aceita valores nulos 
