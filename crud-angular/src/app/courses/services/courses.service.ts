@@ -23,4 +23,8 @@ export class CoursesService {
       tap(courses => console.log(courses)) //recebe lista de cursos e faz algo com essa info (debuga)
     );
   }
+
+  save(record: Course) {
+    return this.httpClient.post<Course>(this.API, record).pipe(first());
+  }
 }
