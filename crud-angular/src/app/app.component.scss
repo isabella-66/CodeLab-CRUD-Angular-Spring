@@ -3,7 +3,7 @@
 
 //base em 3 cores: primária, secundária e de warning (geralmente vermelha)
 $custom-app-primary: mat-palette($mat-blue, 800, A100);
-$custom-app-secondary: mat-palette($mat-indigo, A200, A400, 700); //mistura de cores
+$custom-app-secondary: mat-palette($mat-indigo, A200, A400, 600); //mistura de cores
 $custom-app-warning: mat-palette($mat-red);
 
 //tema customizado com as três cores

@@ -5,6 +5,7 @@ import { Component, OnInit } from '@angular/core';
 import { Course } from '../model/course';
 import { catchError, Observable, of } from 'rxjs';
 import { MatDialog } from '@angular/material/dialog';
+import { ActivatedRoute, Router } from '@angular/router';
 
 @Component({
   selector: 'app-courses',
@@ -16,14 +17,16 @@ export class CoursesComponent implements OnInit {
   courses$: Observable<Course[]>;
 
   //array de string com o nome das propriedades no /course
-  displayedColumns = ['name', 'category'];
+  displayedColumns = ['name', 'category', 'actions'];
 
   /* coursesService: CoursesService; */
 
   //injeção só quando tem @Injectable
   constructor(
     private coursesService: CoursesService,
-    public dialog: MatDialog
+    public dialog: MatDialog,
+    private router: Router,
+    private route: ActivatedRoute
   ) {
     /* this.courses = []; //inicializando variável
     /* this.coursesService = new CoursesService(); //instanciação de classe */
@@ -47,8 +50,9 @@ export class CoursesComponent implements OnInit {
 
   }
 
-}
-function DialogDataExampleDialog(DialogDataExampleDialog: any, arg1: { data: { animal: string; }; }) {
-  throw new Error('Function not implemented.');
+  onAdd() {
+    this.router.navigate(['new'], {relativeTo: this.route}); //rota new relativa a rota que já está
+  }
+
 }
 
